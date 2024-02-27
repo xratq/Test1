@@ -610,7 +610,7 @@ body {
     margin-left: -250px;
   }
   .cnt {
-    position: relative;
+    position: absolute;
     margin-left: 250px;
   }
   .side {
@@ -639,6 +639,7 @@ body {
     margin-left: -320px;
   }
   .cnt {
+    position: absolute;
     margin-left: 320px;
   }
   .side {
