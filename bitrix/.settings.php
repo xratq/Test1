@@ -45,7 +45,7 @@
       array (
         'className' => '\\Bitrix\\Main\\DB\\MysqliConnection',
         'host' => 'localhost',
-        'database' => 'site_c',
+        'database' => 'New_SIteManager',
         'login' => 'root',
         'password' => 'root',
         'options' => 2.0,
@@ -57,7 +57,7 @@
   array (
     'value' => 
     array (
-      'crypto_key' => '8d6164719fd8a4f24f6374925bbfadda',
+      'crypto_key' => 'fc85fb2c5fb0236dd35b9514c1b07777',
     ),
     'readonly' => true,
   ),
