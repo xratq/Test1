@@ -22,10 +22,20 @@ foreach($arResult as $arItem):?>
 			<li><a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>root-item-selected<?else:?>root-item<?endif?>"><?=$arItem["TEXT"]?></a>
 				<ul>
 		<?else:?>
+			
 			<li<?if ($arItem["SELECTED"]):?> class="item-selected"<?endif?>><a href="<?=$arItem["LINK"]?>" class="parent"><?=$arItem["TEXT"]?></a>
 				<ul>
+			
 		<?endif?>
+		<?php
+                                        // Используем ваш код для получения значения menu_top_text
+                                        $menu_top_text = trim($APPLICATION->GetDirProperty("menu_top_text", $arItem["LINK"] ));
 
+
+                                        // Выводим текст перед под-меню, если он задан
+                                        if (!empty($menu_top_text)): ?>
+                                            <div class="menu-text"><?= htmlspecialchars($menu_top_text) ?></div>
+                                        <?php endif; ?>
 	<?else:?>
 
 		<?if ($arItem["PERMISSION"] > "D"):?>
@@ -35,15 +45,6 @@ foreach($arResult as $arItem):?>
 			<?else:?>
 				<li<?if ($arItem["SELECTED"]):?> class="item-selected"<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
 			<?endif?>
-
-		<?else:?>
-
-			<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-				<li><a href="" class="<?if ($arItem["SELECTED"]):?>root-item-selected<?else:?>root-item<?endif?>" title="<?=GetMessage("MENU_ITEM_ACCESS_DENIED")?>"><?=$arItem["TEXT"]?></a></li>
-			<?else:?>
-				<li><a href="" class="denied" title="<?=GetMessage("MENU_ITEM_ACCESS_DENIED")?>"><?=$arItem["TEXT"]?></a></li>
-			<?endif?>
-
 		<?endif?>
 
 	<?endif?>

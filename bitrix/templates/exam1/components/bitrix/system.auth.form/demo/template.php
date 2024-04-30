@@ -45,6 +45,15 @@ if($arResult["FORM_TYPE"] == "login")
 				<div class="frm-row">
 					<a href="" class="btn-forgot"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
 				</div>
+				<?if ($arResult["CAPTCHA_CODE"]) {?>
+                    <tr>
+                        <td colspan="2">
+                            <?echo GetMessage("AUTH_CAPTCHA_PROMT")?>:<br />
+                            <input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
+                            <img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /><br /><br />
+                            <input type="text" name="captcha_word" maxlength="50" value="" /></td>
+                    </tr>
+                <?}?>
 				<div class="frm-row">
 					<div class="frm-chk">
 						<input type="checkbox" id="login" name="USER_REMEMBER" value="Y"> <label for="login"><?=GetMessage("AUTH_REMEMBER_ME_SHORT")?></label>
@@ -53,10 +62,48 @@ if($arResult["FORM_TYPE"] == "login")
 				<div class="frm-row">
 					<input type="submit" name="Login" value="<?=GetMessage("AUTH_LOGIN_BUTTON")?>">
 				</div>
+				<?
+                $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons",
+                    array(
+                        "AUTH_SERVICES"=>$arResult["AUTH_SERVICES"],
+                        "SUFFIX"=>"form",
+                    ),
+                    $component,
+                    array("HIDE_ICONS"=>"Y")
+                );
+                ?>
+                <?
+                $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
+                    array(
+                        "AUTH_SERVICES"=>$arResult["AUTH_SERVICES"],
+                        "AUTH_URL"=>$arResult["AUTH_URL"],
+                        "POST"=>$arResult["POST"],
+
+                        "SUFFIX"=>"form",
+                    ),
+                    $component,
+                    array("HIDE_ICONS"=>"Y")
+                );
+                ?>
 			</form></li>
 		<li><a href=""><?=GetMessage("AUTH_REGISTER")?></a></li>
 	</ul>
 </nav>
 <?
 }
-?>
+else{
+	$rsUser = CUser::GetByID($USER->GetID());
+	$arUser = $rsUser->Fetch();?>
+	
+	
+	
+	<nav class="menu-block">
+		<ul>
+			<li>
+				<a href="/login/user.php" ><? echo $arUser["NAME"];?> <? echo $arUser["LAST_NAME"];?> [<? echo $arUser["LOGIN"];?>]</a>
+			</li>
+			<li><a href="/?logout=yes">Выйти</a>
+			</li>
+		</ul>
+	</nav>
+	<?}?>
