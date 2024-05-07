@@ -45,7 +45,11 @@
       array (
         'className' => '\\Bitrix\\Main\\DB\\MysqliConnection',
         'host' => 'localhost',
+<<<<<<< Updated upstream
         'database' => 'site_c',
+=======
+        'database' => 'siteSite',
+>>>>>>> Stashed changes
         'login' => 'root',
         'password' => 'root',
         'options' => 2.0,
@@ -57,7 +61,11 @@
   array (
     'value' => 
     array (
+<<<<<<< Updated upstream
       'crypto_key' => '8d6164719fd8a4f24f6374925bbfadda',
+=======
+      'crypto_key' => 'e3f507435f35ffe2d1976decab659682',
+>>>>>>> Stashed changes
     ),
     'readonly' => true,
   ),
