@@ -1,12 +1,7 @@
 <?
 if($INCLUDE_FROM_CACHE!='Y')return false;
-<<<<<<< Updated upstream:bitrix/cache/s1/bitrix/news.list/06f/39/39dc4f4a591d19848eb6de3fc606381e.php
-$datecreate = '001708029063';
-$dateexpire = '001744029063';
-=======
 $datecreate = '001715071261';
 $dateexpire = '001751071261';
->>>>>>> Stashed changes:bitrix/cache/s1/bitrix/news.list/06f/05/058311c6218abb1c4febe86386a18499.php
 $ser_content = 'a:2:{s:7:"CONTENT";s:755:"<div class="news-list">
 <dl class="block-list">
 		<dt>27.05.2010</dt>

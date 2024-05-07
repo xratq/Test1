@@ -1,12 +1,7 @@
 <?
 if($INCLUDE_FROM_CACHE!='Y')return false;
-<<<<<<< Updated upstream
-$datecreate = '001708029063';
-$dateexpire = '001708032663';
-=======
 $datecreate = '001715071855';
 $dateexpire = '001715075455';
->>>>>>> Stashed changes
 $ser_content = 'a:2:{s:7:"CONTENT";s:0:"";s:4:"VARS";a:5:{i:0;s:2:"G1";i:1;s:2:"G3";i:2;s:2:"G4";i:3;s:2:"G2";i:4;s:2:"U1";}}';
 return true;
 ?>
